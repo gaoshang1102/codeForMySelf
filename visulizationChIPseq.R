@@ -1,3 +1,5 @@
+library(ggplot2)
+library(rtracklayer)
 dat <- import(con = "Downloads/GSM3325412_12_P4_Sox17_s7.bigWig", format = "bigWig")
 head(dat)
 
@@ -22,6 +24,9 @@ for(i in 1:nrow(subbigwig)){
 }
 
 chipseqSignal <- flattenBigWig[as.character(c(startSite:endSite))]
+datForVisulize <- data.frame(sites = as.integer(names(chipseqSignal)),
+                             signal = chipseqSignal)
+ggplot(datForVisulize, aes(sites, signal)) + geom_point() + theme_bw()
 
 
 
