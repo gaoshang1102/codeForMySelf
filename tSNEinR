@@ -1,0 +1,3 @@
+library(Rtsne)
+
+tsne_df <- Rtsne(data)$Y
