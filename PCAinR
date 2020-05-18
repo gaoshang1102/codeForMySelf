@@ -2,3 +2,9 @@ pca <- prcomp(data, scale. = TRUE)
 head(pca$x)
 pca1$sdev
 head(pca1$rotation)
+
+library(irlba)
+pca.results <- irlba(data, nv = 20)
+feature.loadings <- pca.results$v
+sdev <- pca.results$d
+embeddings <- pca.results$u
