@@ -1,0 +1,3 @@
+macs2 callpeak -t ./banFile.bam -n sample_name --outdir ./ -f BAM -B
+macs2 bdgcmp -t sample_name_treat_pileup.bdg -c sample_name_control_lambda.bdg -o sample_name_pvalue.bdg -m ppois
+./bdgtobw.sh K562_DNase_pvalue.bdg hg38.len
